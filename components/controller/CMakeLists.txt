@@ -1,0 +1,9 @@
+idf_component_register(
+    SRCS
+        pid/pid.c
+    INCLUDE_DIRS
+        pid
+    REQUIRES
+        logic
+        state
+)
