@@ -15,4 +15,4 @@ typedef struct
 pid_t;
 
 // Returns the control output
-float pid(pid_t * pid, state_t x);
+float pid(pid_t * pid, state_t * x);

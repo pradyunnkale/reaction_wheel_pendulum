@@ -1,6 +1,6 @@
 #include "rk4.h"
 
-void rk4_step(const continuous_func_t f, const state_t * xk, float uk, float dt, const dynamics_params_t * params,  state_t * xk_1)
+void rk4_step(const continuous_func_t f, const state_t * xk, float uk, float dt, const dynamics_params_t * params,  state_t * xk1)
 {
   state_t k1, k2, k3, k4, temp;
   f(xk, uk, params, &k1);
@@ -23,8 +23,8 @@ void rk4_step(const continuous_func_t f, const state_t * xk, float uk, float dt,
 	temp.dphi = xk->dphi + k3.dphi * dt;
 	f(&temp, uk, params, &k4);
 
-	xk_1->theta = xk->theta + (dt / 6.0f) * (k1.theta + 2 * k2.theta + 2 * k3.theta + k4.theta);
-	xk_1->dtheta = xk->dtheta + (dt / 6.0f) * (k1.dtheta + 2 * k2.dtheta + 2 * k3.dtheta + k4.dtheta);
-	xk_1->phi = xk->phi + (dt / 6.0f) * (k1.phi + 2 * k2.phi + 2 * k3.phi + k4.phi);
-	xk_1->dphi = xk->dphi + (dt / 6.0f) * (k1.dphi + 2 * k2.dphi + 2 * k3.dphi + k4.dphi);
+	xk1->theta = xk->theta + (dt / 6.0f) * (k1.theta + 2 * k2.theta + 2 * k3.theta + k4.theta);
+	xk1->dtheta = xk->dtheta + (dt / 6.0f) * (k1.dtheta + 2 * k2.dtheta + 2 * k3.dtheta + k4.dtheta);
+	xk1->phi = xk->phi + (dt / 6.0f) * (k1.phi + 2 * k2.phi + 2 * k3.phi + k4.phi);
+	xk1->dphi = xk->dphi + (dt / 6.0f) * (k1.dphi + 2 * k2.dphi + 2 * k3.dphi + k4.dphi);
 }

@@ -28,7 +28,10 @@ void ekf_step(discrete_dyn_func_t f,
               measurement_func_t h,
               ekf_t * ekf,
               const dynamics_params_t * params,
+              const state_t * xhk,
               float uk,
               float dt,
-              const measurement_t *y_meas
+              const measurement_t *y_meas,
               state_t *x_hat);
+
+void f_discrete_wrapper(const state_t* xk, float uk, float dt, const dynamics_params_t * params, state_t * xk1);

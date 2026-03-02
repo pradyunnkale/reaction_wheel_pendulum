@@ -9,4 +9,6 @@ idf_component_register(
     dynamics
     measurement
     ekf
+  REQUIRES
+    utils
 )

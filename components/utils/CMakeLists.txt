@@ -3,6 +3,7 @@ idf_component_register(
     rk4/rk4.c
   INCLUDE_DIRS
     rk4
+		matrix
   REQUIRES
     logic
 )

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "state.h"
+#include "dynamics.h"
 
 typedef struct
 {
