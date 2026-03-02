@@ -1,6 +1,12 @@
 idf_component_register(
   SRCS
     state/state.c
+    dynamics/dynamics.c
+    measurement/measurement.c
+    ekf/ekf.c
   INCLUDE_DIRS
     state
+    dynamics
+    measurement
+    ekf
 )

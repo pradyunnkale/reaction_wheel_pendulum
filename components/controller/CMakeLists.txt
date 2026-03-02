@@ -5,5 +5,4 @@ idf_component_register(
         pid
     REQUIRES
         logic
-        state
 )

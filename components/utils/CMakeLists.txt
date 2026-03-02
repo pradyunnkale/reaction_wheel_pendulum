@@ -1,0 +1,8 @@
+idf_component_register(
+  SRCS
+    rk4/rk4.c
+  INCLUDE_DIRS
+    rk4
+  REQUIRES
+    logic
+)
