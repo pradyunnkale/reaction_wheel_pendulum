@@ -1,9 +1,9 @@
 % Initialization 
-mr = 1; % Mass of the rod
+mr = 0.1; % Mass of the rod
 mw = 1; % Mass of the wheel
 l = 1; % Length of the rod
 g = 9.81; % Acceleration due to gravity
-r = 0.1;
+r = 0.4;
 Iw = (1/2) * mw * r^2; % Inertia of the wheel
 x0 = [0.1; 0; 0; 0]; % Initial State
 x0_est = [0.05; 0; 0; 0]; % Initial Guess
@@ -31,8 +31,8 @@ for i = 2:N
     wk = L * randn(4,1);
     vk = sqrtm(R) * randn(2,1);
     %uk = smc(x_est(:,i-1));
-    %u(:,i-1) = uk;
-    uk = pidcontrol(x_est(:,i-1), dt);
+    %uk = pidcontrol(x_est(:,i-1), dt);
+    uk = 0;
     u(:,i-1) = uk;
 
     x(:,i) = rk4(@(x, u) dynamics(x, u, mr, mw, l, Iw), x(:,i-1), uk, wk, dt);
